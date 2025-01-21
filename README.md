@@ -1,44 +1,73 @@
-# personalised_recommendations_app
-# Student Performance Analysis and Recommendations
+# Personalized Student Recommendations App
 
-This project is designed to analyze student performance data from quizzes, generate recommendations for improvement, and define student personas using clustering. It also includes visualizations to better understand performance trends.
+This repository contains a Python-based application designed to generate personalized recommendations and analyze student performance based on historical quiz data. The app leverages machine learning techniques, such as clustering, to categorize students and provide tailored suggestions.
 
 ## Features
 
-1. **Data Fetching**:
-   - Fetches historical and current quiz data from APIs.
-   - Handles SSL certificate warnings for secure connections.
+- **Data Collection**: Fetches historical and current quiz data from external APIs.
+- **Data Cleaning**: Handles missing values and processes data (e.g., accuracy, topic, difficulty).
+- **Performance Analysis**: Analyzes student performance across various quiz topics.
+- **Recommendations**: Generates recommendations based on weak areas identified in a student's performance.
+- **Persona Definition**: Uses KMeans clustering to categorize students into different personas (e.g., Beginner, Intermediate, Advanced).
+- **Visualization**: Provides visualizations of student performance, including accuracy across topics.
 
-2. **Data Cleaning**:
-   - Removes null values.
-   - Processes nested columns like `quiz` to extract topics.
-   - Converts and standardizes columns like `accuracy`.
+## Installation
 
-3. **Performance Analysis**:
-   - Analyzes student performance by topic.
-   - Identifies weak areas (topics with low accuracy).
+### Prerequisites
 
-4. **Recommendations**:
-   - Generates personalized recommendations for students based on their weak topics and difficulty levels.
+To run the project, you need the following:
 
-5. **Student Persona Definition**:
-   - Uses clustering to categorize students into personas (`Beginner`, `Intermediate`, `Advanced`) based on their performance data.
+- Python 3.6 or higher
+- Required Python libraries (listed in `requirements.txt`)
 
-6. **Visualizations**:
-   - Bar chart visualization of topic-wise accuracy using Matplotlib and Seaborn.
+### Setup
 
-## Requirements
+1. Clone this repository to your local machine:
+    ```bash
+    git clone https://github.com/karthikeya2536/personalised_recommendations_app.git
+    cd personalised_recommendations_app
+    ```
 
-- Python 3.7+
-- Libraries:
-  - `requests`
-  - `pandas`
-  - `numpy`
-  - `scikit-learn`
-  - `matplotlib`
-  - `seaborn`
-  - `urllib3`
+2. Create a virtual environment (optional but recommended):
+    ```bash
+    python -m venv venv
+    ```
 
-Install the required libraries using:
-```bash
-pip install -r requirements.txt
+3. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Data Sources
+
+- **Historical Data**: Data is fetched from `https://api.jsonserve.com/XgAgFJ`.
+- **Current Data**: Data is fetched from `https://jsonkeeper.com/b/LLQT`.
+
+## Usage
+
+1. After setting up, you can run the main script:
+
+    ```bash
+    python app.py
+    ```
+
+2. The script will:
+   - Fetch the data from the APIs.
+   - Clean and process the data.
+   - Perform performance analysis and generate recommendations for a given student.
+   - Define student personas using clustering (KMeans).
+   - Display visualizations of student performance.
+
+3. Modify the `student_id` in the main script to analyze a different student.
+
+## Results
+
+The script generates:
+- **Recommendations** for improvement based on the student's weak topics.
+- **Student Personas** categorized into Beginner, Intermediate, and Advanced groups.
+- **Performance Visualizations** showing the accuracy for each topic.
+
+
+
+
+
